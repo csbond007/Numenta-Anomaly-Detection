@@ -34,3 +34,6 @@ Training Data : heart-beat.csv  // For now the data is here, we need to create d
 Testing Data  : anomaly-data.csv  // For now the data is here, we need to create data-pipelines
 
 Easy Approach to Servicify is to call the main methods of swarm.py and run.py, one after another in a something like service.py
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
