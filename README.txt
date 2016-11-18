@@ -18,7 +18,7 @@ pip install cassandra-driver
 pip install pandas
 
 /////////////////////////////////////////// Cassandra Table Creation /////////////////////////////////////
-use table_creation.txt within the cassandra_scripts to create the corresponding tables
+use table_creation.txt within the cassandra_scripts folder to create the corresponding tables
 
 /////////////////////////////// Running the code /////////////////////////////////////
 cd Numenta-Anomaly-Detection
