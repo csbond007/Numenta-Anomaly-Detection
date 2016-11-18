@@ -30,7 +30,7 @@ check in model_params whether new model file was created
 
 ./run.py   // Run the Model to give generate anomaly scores and related other cassandra tables
 
-Training Data : heart-beat.csv
-Testing Data  : anomaly-data.csv
+Training Data : heart-beat.csv  // For now the data is here, we need to create data-pipelines
+Testing Data  : anomaly-data.csv  // For now the data is here, we need to create data-pipelines
 
-
+Easy Approach to Servicify is to call the main methods of swarm.py and run.py, one after another in a something like service.py
