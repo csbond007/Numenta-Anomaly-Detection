@@ -45,7 +45,7 @@ DESCRIPTION = (
 DATA_FILE = "heart-beat"
 DATA_DIR = "." # "/home/ksaha/Data/Data_Run"
 MODEL_PARAMS_DIR = "./model_params"
-INPUT_DATA = "1_heart-beat.csv" # "%s/%s.csv" % (DATA_DIR, DATA_FILE.replace(" ", "_"))
+INPUT_DATA = "anomaly-data.csv" # "%s/%s.csv" % (DATA_DIR, DATA_FILE.replace(" ", "_"))
 # '7/2/10 0:00'
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
 #DATE_FORMAT = "%m/%d/%y %H:%M"
