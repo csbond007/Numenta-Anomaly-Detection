@@ -1,1 +1,0 @@
-# Numenta-Anomaly-Detection
