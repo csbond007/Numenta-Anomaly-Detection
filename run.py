@@ -114,7 +114,7 @@ def runIoThroughNupic(model):
 
 	val_activity = str(df.iloc[num_records_index,2])
 
-        CQL_Insert_String = "INSERT INTO data_input_11_18_1 (patient_id,time_stamp, heartbeat, activity) " + \
+        CQL_Insert_String = "INSERT INTO data_input_11_18_10 (patient_id,time_stamp, heartbeat, activity) " + \
                              "VALUES ('" + patient_id + "','"+ val_time_stamp + "','" + \
                             val_heartbeat + "','" + val_activity +"');"
 
@@ -122,7 +122,7 @@ def runIoThroughNupic(model):
         
         # Add the record from the actual data source to the Cassandra input table
         ## Read back the latest row added from Cassandra input table
-        CQLString = "SELECT * FROM data_input_11_18_1  LIMIT 1;" 
+        CQLString = "SELECT * FROM data_input_11_18_10  LIMIT 1;" 
         rows = session.execute(CQLString)
         for user_row in rows:
                 data_df = pd.DataFrame({'col_1' : [user_row.time_stamp], \
@@ -157,7 +157,7 @@ def runIoThroughNupic(model):
         output_timestamp = str(timestamp.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
         print output_timestamp, heartbeat, prediction, anomalyScore, anomalyLikelihood 
         
-        CQL_Output_String = "INSERT INTO data_output_11_18_1 (patient_id,timestamp,heartbeat, \
+        CQL_Output_String = "INSERT INTO data_output_11_18_10 (patient_id,timestamp,heartbeat, \
                              prediction,anomalyScore,anomalyLikelihood,activity) " + "VALUES ('" + \
                              patient_id + "','"+ output_timestamp + "','" + str(heartbeat) + \
 			     "','" + str(prediction) + "','" + str(anomalyScore) + "','" + \
@@ -167,7 +167,7 @@ def runIoThroughNupic(model):
 
         if anomalyScore > 0.0:
 		
-		CQL_Anomaly_String = "INSERT INTO data_anomaly_11_18_2 (patient_id,timestamp,heartbeat, \
+		CQL_Anomaly_String = "INSERT INTO data_anomaly_11_18_10 (patient_id,timestamp,heartbeat, \
         	                      prediction,anomalyScore,anomalyLikelihood,activity,record_num) " + \
                                      "VALUES ('" + patient_id + "','"+ output_timestamp + "','" + str(heartbeat) + \
                         	      "','" + str(prediction) + "','" + str(anomalyScore) + "','" + \
@@ -176,7 +176,7 @@ def runIoThroughNupic(model):
         	session.execute(CQL_Anomaly_String)
 	
 	# Just for statistics gathering. Will remove this table	
-	CQL_time_diff_String = "INSERT INTO data_time_diff_11_18_3 (patient_id,timestamp,time_diff) " + \
+	CQL_time_diff_String = "INSERT INTO data_time_diff_11_18_10 (patient_id,timestamp,time_diff) " + \
 			        "VALUES ('" + patient_id + "','"+ output_timestamp + "','" + str(time_diff) + "');"
 
 

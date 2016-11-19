@@ -1,0 +1,19 @@
+
+CREATE TABLE data_input_11_18_10 (patient_id text, time_stamp timestamp, heartbeat text , 
+                              activity text,
+                              PRIMARY KEY (patient_id,time_stamp))
+                                WITH CLUSTERING ORDER BY (time_stamp DESC);
+
+CREATE TABLE data_output_11_18_10 (patient_id text, timestamp timestamp, heartbeat text , 
+                           prediction text,anomalyScore text, anomalyLikelihood text, activity text,
+                              PRIMARY KEY (patient_id,timestamp))
+                                WITH CLUSTERING ORDER BY (timestamp DESC);
+
+CREATE TABLE data_anomaly_11_18_10 (patient_id text, timestamp timestamp, heartbeat text , 
+           prediction text,anomalyScore text, anomalyLikelihood text, activity text, record_num text,
+                              PRIMARY KEY (patient_id,timestamp))
+                                WITH CLUSTERING ORDER BY (timestamp DESC);
+
+CREATE TABLE data_time_diff_11_18_10 (patient_id text, timestamp timestamp, time_diff text , 
+                                     PRIMARY KEY (patient_id,timestamp))
+                                     WITH CLUSTERING ORDER BY (timestamp DESC);
